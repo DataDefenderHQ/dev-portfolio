@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
+  font-family: 'Inter', system-ui, sans-serif;
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(20, 14.3%, 4.1%);
   --muted: hsl(60, 4.8%, 95.9%);
@@ -77,6 +80,15 @@
 
   .animate-bounce-slow {
     animation: bounce 2s infinite;
+  }
+}
+
+@layer utilities {
+  .shadow-soft {
+    box-shadow: 0 4px 24px 0 rgba(30, 41, 59, 0.08), 0 1.5px 6px 0 rgba(30, 41, 59, 0.04);
+  }
+  .transition-smooth {
+    transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
   }
 }
 
