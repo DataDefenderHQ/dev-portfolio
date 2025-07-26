@@ -1,4 +1,4 @@
-import { Github } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
@@ -41,38 +41,38 @@ const projects = [
 export default function ProjectsSection() {
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-primary mb-4">My Projects</h2>
-          <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
+          <div className="w-24 h-1 bg-blue-600 mx-auto mb-6 rounded-full"></div>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills in backend development and data analysis
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div 
               key={index}
-              className={`bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 ${
-                index === 4 ? 'md:col-span-2 lg:col-span-1' : ''
-              }`}
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow duration-200"
             >
-              <img 
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover" 
-              />
+              <div className="relative">
+                <img 
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover" 
+                />
+              </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3 dark:text-white">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">{project.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span 
                       key={tag}
-                      className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                      className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-3 py-1 rounded-full text-sm font-medium"
                     >
                       {tag}
                     </span>
@@ -82,10 +82,11 @@ export default function ProjectsSection() {
                   href={project.githubUrl} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-primary hover:text-blue-800 font-medium"
+                  className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm"
                 >
                   <Github className="w-4 h-4 mr-2" />
                   View Source Code
+                  <ExternalLink className="w-3 h-3 ml-1" />
                 </a>
               </div>
             </div>
